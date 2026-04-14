@@ -1,0 +1,220 @@
+.home-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.home-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ff007f, #00e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0px 4px 15px rgba(255, 0, 127, 0.3);
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+h2 {
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ================================= */
+/* ANIMAZIONE LOADER Fighissima      */
+/* ================================= */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+  gap: 20px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(255, 255, 255, 0.1); 
+  border-left-color: #00e5ff; /* Ciano */
+  border-right-color: #ff007f; /* Fucsia */
+  border-radius: 50%;
+  animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00e5ff, #ff007f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: pulseOpacity 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ================================= */
+/* STILE "COMPONI NUOVO POST"        */
+/* ================================= */
+.create-post-wrapper {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: var(--card-shadow);
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-post-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.1rem;
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.create-post-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.create-post-input:focus {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: #00e5ff;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+}
+
+.create-post-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px dashed rgba(255,255,255,0.1);
+  padding-top: 15px;
+}
+
+.upload-image-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: #00e5ff;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto; 
+  transition: all 0.2s;
+}
+
+.upload-image-btn:hover {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: #00e5ff;
+}
+
+.create-post-image-preview {
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.create-post-image-preview img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  object-fit: contain;
+  background: rgba(0,0,0,0.3);
+}
+
+.create-post-image-preview button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,0,127,0.8);
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  backdrop-filter: blur(5px);
+}
+.create-post-image-preview button:hover {
+  background: #ff007f;
+}
+
+.create-post-btn {
+  background: linear-gradient(90deg, #ff007f, #7928ca);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.create-post-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+  box-shadow: none;
+}
+
+.create-post-btn:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.6);
+}

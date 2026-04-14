@@ -1,0 +1,245 @@
+/* Sfondo animato super premium */
+.user-page-wrapper {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes bgGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Loader */
+.loader {
+  margin-top: 50px;
+  font-size: 20px;
+  color: #00e5ff;
+  font-weight: 600;
+  animation: pulseLoader 1.5s infinite;
+}
+
+@keyframes pulseLoader {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Card principale in Vetro (Glassmorphism) */
+.user-single-card {
+  max-width: 650px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05); /* Effetto vetro semitrasparente */
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /* Ombra morbida scura */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Bordo luminescente debole */
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  color: #ffffff; /* Testo chiaro su sfondo scuro */
+}
+
+.user-single-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Header Profilo e Banner Astratto */
+.profile-header {
+  position: relative;
+  height: 180px;
+  width: 100%;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 140px;
+  /* Gradiente cangiante vibrante */
+  background: linear-gradient(90deg, #ff007f, #7928ca, #00e5ff);
+  background-size: 300% 300%;
+  animation: bannerWaves 8s ease infinite;
+}
+
+@keyframes bannerWaves {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.profile-avatar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #1a1a2e;
+  padding: 5px;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ffffff; 
+}
+
+/* Info testuali principali centrali */
+.profile-info-main {
+  text-align: center;
+  padding: 10px 20px 25px;
+}
+
+.profile-info-main h2 {
+  margin: 10px 0 5px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  color: #ffffff;
+}
+
+.profile-info-main h3 {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: #00e5ff; /* Accento Turchese Neon */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Bottone Segui (Design Premium Glowing) */
+.follow-btn {
+  padding: 12px 35px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, #ff007f, #7928ca);
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.follow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.6);
+}
+
+.follow-btn.following {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+/* Layout a Griglia per Dettagli Utente */
+.profile-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 0 30px 40px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.detail-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.detail-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.detail-icon {
+  font-size: 26px;
+  margin-right: 18px;
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+}
+
+.detail-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #aebacd;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.detail-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Pulsante Indietro sovrapposto al Banner */
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(-4px);
+  border-color: rgba(255,255,255,0.6);
+}
+
+.back-btn .icon {
+  font-size: 16px;
+}
+
+/* Responsività per schermi piccoli */
+@media (max-width: 600px) {
+  .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #ff007f; 
+  --primary-hover: #7928ca;
+  --accent: #00e5ff;
+  
+  /* Sfondo Scuro Dinamico Premium */
+  --bg-gradient: linear-gradient(135deg, #130024, #0b011d, #00112c, #000000);
+  
+  --text-main: #ffffff; 
+  --text-muted: #aebacd; 
+  
+  /* Glassmorphism di base */
+  --card-bg: rgba(255, 255, 255, 0.05); 
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-gradient);
+  
+  /* MASSIMA IMMERSIVITA */
+  background-size: 400% 400%; 
+  background-attachment: fixed; /* Il contenuto scorre sopra uno sfondo fermo ma animato */
+  animation: ImmersiveAurora 20s ease infinite; 
+  
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+@keyframes ImmersiveAurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Stili scrollbar premium e neon */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-color), var(--accent));
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent), var(--primary-color));
+  box-shadow: 0 0 15px var(--accent);
+}
