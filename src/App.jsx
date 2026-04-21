@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Users from './pages/Users';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -38,6 +39,9 @@ function App() {
 
           {/* Pagina di login */}
           <Route path="login" element={<Login />} />
+
+          {/* Pagina di reset password */}
+          <Route path="reset-password" element={<ResetPassword />} />
 
         </Route>
       </Routes>

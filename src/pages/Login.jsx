@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLoggedUserStore } from '../store/LoggedUserStore';
 import { useAuthStore } from '../store/AuthStore';
 import './Register.css';
@@ -15,6 +15,7 @@ export default function Login() {
   });
 
   const [loginError, setLoginError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -89,20 +90,50 @@ export default function Login() {
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleChange}
-              className={`form-input ${loginError ? 'input-error' : ''}`}
-              placeholder="La tua password"
-              required
-            />
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+                className={`form-input ${loginError ? 'input-error' : ''}`}
+                placeholder="La tua password"
+                required
+              />
+              <button
+                type="button"
+                className="toggle-password-btn"
+                onClick={() => setShowPassword(!showPassword)}
+                tabIndex={-1}
+              >
+                {showPassword ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                )}
+              </button>
+            </div>
             {loginError && <span className="error-message" style={{ textAlign: 'center', marginTop: '10px' }}>{loginError}</span>}
           </div>
 
           <button type="submit" className="submit-btn" style={{ marginTop: '20px' }}>Accedi</button>
+
+          <Link
+            to="/reset-password"
+            style={{
+              color: 'var(--accent)',
+              textDecoration: 'none',
+              fontSize: '0.9rem',
+              textAlign: 'center',
+              marginTop: '15px',
+              transition: 'opacity 0.3s ease'
+            }}
+            onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+            onMouseLeave={(e) => e.target.style.opacity = '1'}
+          >
+            Password dimenticata? Reimposta Password
+          </Link>
         </form>
       </div>
     </div>

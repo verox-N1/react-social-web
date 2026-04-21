@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useFollowedUsersStore } from "../store/FollowedUsersStore";
 import './Users.css';
 
 const Users = () => {
@@ -7,7 +8,10 @@ const Users = () => {
   const navigate = useNavigate();
   const user = location.state;
 
-  const [following, setFollowing] = useState(false);
+  // Utilizziamo lo store globale invece di useState
+  const { toggleFollow, isFollowing } = useFollowedUsersStore();
+  const following = user ? isFollowing(user.id) : false;
+
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -64,7 +68,7 @@ const Users = () => {
 
             <button
               className={`follow-btn ${following ? "following" : ""}`}
-              onClick={() => setFollowing(!following)}
+              onClick={() => toggleFollow(user)}
             >
               {following ? "✓ Segui Già" : "+ Segui Profilo"}
             </button>

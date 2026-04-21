@@ -104,7 +104,32 @@ export const useAuthStore = create(
       resetRegisterForm: () => set({
         registerData: { username: '', nome: '', cognome: '', email: '', password: '' },
         errors: {}
-      })
+      }),
+
+      // Aggiorna la password di un utente esistente
+      updatePassword: (identifier, newPassword) => set((state) => {
+        const inputId = identifier.trim().toLowerCase();
+        return {
+          registeredUsers: state.registeredUsers.map(user => {
+            const matchEmail = (user.email || '').trim().toLowerCase() === inputId;
+            const matchUsername = (user.username || '').trim().toLowerCase() === inputId;
+            if (matchEmail || matchUsername) {
+              return { ...user, password: newPassword };
+            }
+            return user;
+          })
+        };
+      }),
+
+      // Controlla se un utente esiste (per email o username)
+      findUserByIdentifier: (identifier) => {
+        const inputId = identifier.trim().toLowerCase();
+        return get().registeredUsers.find(user => {
+          const matchEmail = (user.email || '').trim().toLowerCase() === inputId;
+          const matchUsername = (user.username || '').trim().toLowerCase() === inputId;
+          return matchEmail || matchUsername;
+        });
+      }
     }),
     {
       name: 'auth-storage',
