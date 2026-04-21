@@ -6,16 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Users from './pages/Users';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
   const [posts, setPosts] = useState([]);
-  
-  // Lo stato degli utenti è ora gestito globalmente nel file UserStore.jsx !
-  // La chiamata dei posts:
-
-  // E poi fa la chiamta dei posts
-  // si usano i props, passare variabili da una componente padre ad una componente figlia.
-  // 1. Creare uno store jsx richiamabile nelle varie componenti che salvi il risultato della chiamata rest: https://jsonplaceholder.typicode.com/users
   
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -37,6 +32,12 @@ function App() {
 
           {/* Pagina singolo utente */}
           <Route path="users/:id" element={<Users />} />
+          
+          {/* Pagina di registrazione */}
+          <Route path="register" element={<Register />} />
+
+          {/* Pagina di login */}
+          <Route path="login" element={<Login />} />
 
         </Route>
       </Routes>
