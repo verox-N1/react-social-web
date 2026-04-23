@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFollowedUsersStore } from "../store/FollowedUsersStore";
 import './Users.css';
+import Loader from '../components/Loader';
 
 const Users = () => {
   const location = useLocation();
@@ -45,7 +46,7 @@ const Users = () => {
   return (
     <div className="user-page-wrapper">
       {loading ? (
-        <div className="loader">Caricamento profilo...</div>
+        <Loader text="Analisi profilo utente..." />
       ) : (
         <div className="user-single-card">
           <button

@@ -14,20 +14,6 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Loader */
-.loader {
-  margin-top: 50px;
-  font-size: 20px;
-  color: #00e5ff;
-  font-weight: 600;
-  animation: pulseLoader 1.5s infinite;
-}
-
-@keyframes pulseLoader {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
 /* Card principale in Vetro (Glassmorphism) */
 .user-single-card {
   max-width: 650px;

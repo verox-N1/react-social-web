@@ -5,12 +5,24 @@ import { useLoggedUserStore } from '../store/LoggedUserStore';
 import { useAuthStore } from '../store/AuthStore';
 import { useFollowedUsersStore } from '../store/FollowedUsersStore';
 import './Profile.css';
+import Loader from '../components/Loader';
+import { useEffect } from 'react';
 
 export default function Profile() {
   const navigate = useNavigate();
   const { user } = useLoggedUserStore();
   const { registeredUsers, updatePassword, findUserByIdentifier } = useAuthStore();
   const { followedUsers, unfollowUser } = useFollowedUsersStore();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula caricamento per continuità estetica
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Trova i dati completi dell'utente loggato nel "database"
   const fullUser = registeredUsers.find(
@@ -95,6 +107,10 @@ export default function Profile() {
       setSelectedUser(null);
     }
   };
+
+  if (loading) {
+    return <Loader text="Caricamento del tuo spazio personale..." />;
+  }
 
   return (
     <div className="profile-wrapper">

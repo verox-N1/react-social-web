@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Home.css';
 import Post from '../components/Post';
 import { useUsers } from '../store/UserStore'; 
+import Loader from '../components/Loader';
 
 const Home = ({ posts }) => {
   const { users, loading } = useUsers();
@@ -20,12 +21,7 @@ const Home = ({ posts }) => {
   };
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-        <p className="loader-text">Connessione alla Community...</p>
-      </div>
-    );
+    return <Loader text="Connessione alla Community..." />;
   }
 
   // Funzione per inviare il nuovo post alla lista locale
