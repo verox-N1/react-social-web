@@ -125,7 +125,7 @@ export default function Profile() {
 
         {/* Sezione Seguiti */}
         <div className="profile-followed-section">
-          <h3>👥 Seguiti</h3>
+          <h3>👥 Seguiti <span className="followed-count">({followedUsers.length})</span></h3>
           {followedUsers.length > 0 ? (
             <div className="followed-list">
               {followedUsers.map(fu => (
@@ -138,7 +138,7 @@ export default function Profile() {
                     src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${fu.username}`}
                     alt={fu.name}
                   />
-                  <span>{fu.name?.split(' ')[0] || fu.username}</span>
+                  <span>{fu.name || fu.username}</span>
                 </div>
               ))}
             </div>
