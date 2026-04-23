@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 85px; /* Aumentato da 70px */
   
   /* Header in Glassmorphism Scuro */
   background: rgba(0, 0, 0, 0.5);
@@ -57,7 +57,7 @@
 }
 
 .header-logo {
-  height: 42px;
+  height: 52px; /* Aumentato da 42px */
   width: auto;
   filter: drop-shadow(0 0px 8px rgba(0, 229, 255, 0.5)); /* Bagliore azzurro */
   transition: transform 0.3s ease, filter 0.3s ease;

@@ -9,6 +9,7 @@ import Users from './pages/Users';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ResetPassword from './pages/ResetPassword';
+import Profile from './pages/Profile';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -42,6 +43,9 @@ function App() {
 
           {/* Pagina di reset password */}
           <Route path="reset-password" element={<ResetPassword />} />
+
+          {/* Pagina del profilo utente */}
+          <Route path="profile" element={<Profile />} />
 
         </Route>
       </Routes>

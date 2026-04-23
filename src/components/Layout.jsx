@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const HEADER_HEIGHT = 30; // stessa altezza dell'header
+const HEADER_HEIGHT = 85; // stessa altezza dell'header reale
 
 export default function Layout(){
     return(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLoggedUserStore } from '../store/LoggedUserStore';
 import './Header.css';
 import logo from '../assets/logo.png';
@@ -18,12 +18,14 @@ const Header = () => {
         <nav className="header-nav" style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <span style={{ fontWeight: 500, color: 'var(--text-main)' }}>Ciao, {user.username}</span>
-              <img 
-                src={user.profilePic} 
-                alt="Profilo Utente" 
-                style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid var(--accent)', objectFit: 'cover' }} 
-              />
+              <Link to="/profile" style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none' }}>
+                <span style={{ fontWeight: 500, color: 'var(--text-main)', cursor: 'pointer' }}>Ciao, {user.username}</span>
+                <img 
+                  src={user.profilePic} 
+                  alt="Profilo Utente" 
+                  style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid var(--accent)', objectFit: 'cover', cursor: 'pointer' }} 
+                />
+              </Link>
               <button 
                 onClick={logout} 
                 className="register-nav-btn" 
